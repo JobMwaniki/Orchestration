@@ -4,9 +4,11 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile
-    image: mwaniki21/client:v1.0.0
+    image: mwaniki21/client:v1.0.1
     ports:
       - 3000:3000
+    environment:
+      REACT_APP_BACKEND_API_URL: 'http://localhost:5000'
     networks:
       frontend-net:
         ipv4_address: 172.51.0.101
@@ -18,7 +20,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    image: mwaniki21/backend:v1.0.0
+    image: mwaniki21/backend:v1.0.1
     ports:
       - 5000:5000
     environment:
